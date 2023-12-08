@@ -32,9 +32,6 @@ namespace AptitudeTest.WebApp.Models
         [Required]
         public string Address { get; set; } = string.Empty;
 
-        /*[Required]
-        public string Resume { get; set; } = string.Empty;*/
-
         public School School { get; set; } = School.FPT_Aptech;
 
 

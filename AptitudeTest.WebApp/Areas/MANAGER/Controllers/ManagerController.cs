@@ -121,8 +121,19 @@ namespace AptitudeTest.WebApp.Areas.MANAGER.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 model.UserName ??= "";
                 model.Password ??= "";
+
+                if(model.UserName == null)
+                {
+                    model.UserName = "";
+                } 
+                if(model.Password == null)
+                {
+                    model.Password = "";
+                }
+
                 _context.Users.Update(model);
                 _context.SaveChanges();
 

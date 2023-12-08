@@ -81,9 +81,6 @@ namespace AptitudeTest.WebApp.Controllers
                 return View(vm);
             }
         }
-      
-
-
         //Login
         public IActionResult Login()
         {

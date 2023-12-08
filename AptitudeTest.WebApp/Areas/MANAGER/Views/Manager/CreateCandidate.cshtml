@@ -49,6 +49,41 @@
 
 
                     <div class="input-field">
+
+    <form id="account" asp-controller="Manager" asp-action="CreateCandidate" enctype="multipart/form-data" method="post">
+        <div class="form">
+            <div class="details">
+                <span class="title">Personal Details</span>
+                <div class="fields">
+                    <div class="input-field">
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                        <label>First Name</label>
+                        <input asp-for="FirstName" type="text" placeholder="Enter your First Name">
+                    </div>
+
+                    <div class="input-field">
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                        <label>Last Name</label>
+                        <input asp-for="LastName" type="text" placeholder="Enter your Last Name">
+                    </div>
+
+                    <div class="input-field">
+                        <span asp-validation-for="BirthDay" class="text-danger"></span>
+                        <label>Date of Birth</label>
+                        <input type="date" asp-for="BirthDay" class="form-control">
+                    </div>
+
+
+                    <div class="input-field">
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        <span class="text-danger">@Html.ValidationMessage("PhoneExistErr")</span>
+                        <label>Mobile Number</label>
+                        <input asp-for="PhoneNumber" type="text" placeholder="Enter mobile number">
+                    </div>
+
+
+
+                    <div class="input-field">
                         <label>Gender</label>
                         <select asp-for="Gender">
                             <option disabled selected>Select gender</option>
@@ -80,6 +115,21 @@
                             }
                         </select>
                     </div>
+            </div>
+
+            <div class="details">
+                <div class="input-field school">
+                    <span class="title">Your School</span>
+                    <div>
+                        <label>School:</label>
+                        <select asp-for="School">
+                            <option disabled selected>Select a school...</option>
+                            @foreach (School university in Enum.GetValues(typeof(School)))
+                            {
+                                <option value="@university">@university</option>
+                            }
+                        </select>
+                    </div>
                 </div>
             </div>
 
@@ -91,21 +141,13 @@
                 </div>
             </div>
 
-
-            @*<div class="details">
-                <div class="input-field input-img">
-                    <span class="title">Upload Image</span>
-                    <input asp-for="ProfileImage" type="file">
+            <div class="details">
+                <div class="input-field text-area">
+                    <span class="title">Email</span>
+                    <input class="" asp-for="Email" placeholder="Enter Your Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
             </div>
-
-            <div class="details">
-                <div class="input-field input-img">
-                    <span class="title">Upload Resume</span>
-                    <input asp-for="ResumeFile" type="file">
-                </div>
-            </div>*@
-
             <div class="row justify-content-center">
                 <div class="col-4">
                     <button type="submit" id="btnsubmit" class="btn btn-primary btn-block">Create</button>

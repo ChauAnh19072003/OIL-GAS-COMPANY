@@ -17,7 +17,6 @@ namespace AptitudeTest.WebApp.ViewModels
         public Gender Gender { get; set; }
         public School School { get; set; }
         public string Password { get; set; }
-
         public List<FinalResult> FinalResultList { get; set; } = new List<FinalResult>();
 
         public CandidateProfileViewModel()

@@ -30,7 +30,6 @@
                         <label>Last Name</label>
                         <input asp-for="LastName" type="text"/>
                     </div>
-
                     <div class="input-field">
                         <span asp-validation-for="BirthDay" class="text-danger"></span>
                         <label>Date of Birth</label>
@@ -62,6 +61,54 @@
 
                         <label>Address</label>
                         <input asp-for="Address" type="text" />
+                </div>
+                    <div class="input-field">
+                        <span asp-validation-for="BirthDay" class="text-danger"></span>
+                        <label>Date of Birth</label>
+                        <input type="date" asp-for="BirthDay" class="form-control"/>
+                    </div>
+
+
+                    <div class="input-field">
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        <span class="text-danger">@Html.ValidationMessage("PhoneExistErr")</span>
+                        <label>Mobile Number</label>
+                        <input asp-for="PhoneNumber" type="text"/>
+                    </div>
+
+
+
+                    <div class="input-field">
+                        <label>Gender</label>
+                        <select asp-for="Gender">
+                            <option disabled selected>Select gender</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="input-field">
+                        <span asp-validation-for="Address" class="text-danger"></span>
+
+                        <label>Address</label>
+                        <input asp-for="Address" type="text" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="details">
+                <div class="input-field school">
+                    <span class="title">Your School</span>
+                    <div>
+                        <label>School:</label>
+                        <select asp-for="School">
+                            <option disabled selected>Select a school...</option>
+                            @foreach (School university in Enum.GetValues(typeof(School)))
+                            {
+                                <option value="@university">@university</option>
+                            }
+                        </select>
                     </div>
                 </div>
             </div>
