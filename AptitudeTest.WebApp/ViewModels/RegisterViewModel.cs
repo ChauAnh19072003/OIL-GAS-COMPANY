@@ -17,14 +17,6 @@ namespace AptitudeTest.WebApp.ViewModels
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public Gender Gender { get; set; }
-        public string CoverLetter { get; set; }
-
-        [DataType(DataType.Upload)]
-        public IFormFile ResumeFile { get; set; }
-
-        [DataType(DataType.Upload)]
-        public IFormFile ProfileImage { get; set; }
-
         public School School { get; set; }
     }
 }

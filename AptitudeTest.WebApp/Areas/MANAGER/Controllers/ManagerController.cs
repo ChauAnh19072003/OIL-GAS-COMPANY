@@ -121,6 +121,10 @@ namespace AptitudeTest.WebApp.Areas.MANAGER.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                model.UserName ??= "";
+                model.Password ??= "";
+
                 if(model.UserName == null)
                 {
                     model.UserName = "";
@@ -128,14 +132,6 @@ namespace AptitudeTest.WebApp.Areas.MANAGER.Controllers
                 if(model.Password == null)
                 {
                     model.Password = "";
-                }
-                if(model.ProfilePicture == null)
-                {
-                    model.ProfilePicture = "";
-                }
-                if(model.ResumeFile == null)
-                {
-                    model.ResumeFile = "";
                 }
 
                 _context.Users.Update(model);

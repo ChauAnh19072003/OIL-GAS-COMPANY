@@ -61,18 +61,13 @@ namespace AptitudeTest.WebApp.Controllers
                 {
                     return NotFound();
                 }
-                string uniqueFileName = UploadedFile(vm);
-                string uniqueResumeFileName = UploadedResumeFile(vm);
                 user.FirstName = vm.FirstName;
                 user.LastName = vm.LastName;
                 user.PhoneNumber = vm.PhoneNumber;
                 user.BirthDay = vm.BirthDay;
                 user.Address = vm.Address;
                 user.Gender = vm.Gender;
-                user.CoverLetter = vm.CoverLetter;
                 user.School = vm.School;
-                user.ProfilePicture = uniqueFileName;
-                user.ResumeFile = uniqueResumeFileName;
                 _context.Users.Update(user);
                 _context.SaveChanges();
 
@@ -86,40 +81,6 @@ namespace AptitudeTest.WebApp.Controllers
                 return View(vm);
             }
         }
-        private string UploadedFile(RegisterViewModel vm)
-        {
-            string uniqueFileName = null;
-
-            if (vm.ProfileImage != null)
-            {
-                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "profileimg");
-                uniqueFileName = Guid.NewGuid().ToString() + "_" + vm.ProfileImage.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    vm.ProfileImage.CopyTo(fileStream);
-                }
-            }
-            return uniqueFileName;
-        }
-        private string UploadedResumeFile(RegisterViewModel vm)
-        {
-            string uniqueFileName = null;
-
-            if (vm.ResumeFile != null)
-            {
-                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "resumes");
-                uniqueFileName = Guid.NewGuid().ToString() + "_" + vm.ResumeFile.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    vm.ResumeFile.CopyTo(fileStream);
-                }
-            }
-            return uniqueFileName;
-        }
-
-
         //Login
         public IActionResult Login()
         {

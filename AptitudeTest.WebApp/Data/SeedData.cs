@@ -18,7 +18,7 @@ namespace AptitudeTest.WebApp.Data
                 {
                     context.Users.Add(new User()
                     {
-                        Email = "nguyenhuynhanhtuan2407@gmail.com",
+                        Email = "anhvdcts2202016@fpt.edu.vn",
                         UserName = "admin",
                         Password = "admin123",
                         Role = (int)EnumRoles.MANAGER,

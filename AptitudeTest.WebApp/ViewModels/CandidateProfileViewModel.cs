@@ -17,10 +17,6 @@ namespace AptitudeTest.WebApp.ViewModels
         public Gender Gender { get; set; }
         public School School { get; set; }
         public string Password { get; set; }
-
-        [ValidateNever]
-        public string ProfilePicture { get; set; }
-
         public List<FinalResult> FinalResultList { get; set; } = new List<FinalResult>();
 
         public CandidateProfileViewModel()
@@ -38,7 +34,6 @@ namespace AptitudeTest.WebApp.ViewModels
 			BirthDay = user.BirthDay;
             Gender = user.Gender;
             School = user.School;
-            ProfilePicture = user.ProfilePicture;
 			Password = user.Password;
 		}
 
